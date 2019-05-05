@@ -233,6 +233,7 @@ def GetTokens(source):
                 # NOTE(nnorwitz): doesn't handle comments in #define macros.
                 # Get the first important symbol (newline, comment, EOF/end).
                 i = min([x for x in (i1, i2, i3, i4, end) if x != -1])
+                if i==end: break
 
                 # Handle #include "dir//foo.h" properly.
                 if source[i] == '"':
